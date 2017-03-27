@@ -1,4 +1,4 @@
-package com.example.vladzakharo.weather;
+package com.example.vladzakharo.weather.presentation.common.mvp;
 
 import android.support.annotation.Nullable;
 
