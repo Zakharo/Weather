@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.Bundle;
 
-import com.example.vladzakharo.weather.presentation.second.SecondActivity;
+import com.example.vladzakharo.weather.presentation.central.CentralActivity;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpActivity;
 
 public class SplashActivity extends BaseMvpActivity<SplashView, SplashPresenter> implements SplashView{
@@ -12,7 +12,7 @@ public class SplashActivity extends BaseMvpActivity<SplashView, SplashPresenter>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter.attachView(this);
+        getPresenter().attachView(this);
     }
 
     @Override
@@ -23,12 +23,12 @@ public class SplashActivity extends BaseMvpActivity<SplashView, SplashPresenter>
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.detachView();
+        getPresenter().detachView();
     }
 
     @Override
     public void moveToHomeScreen() {
-        Intent intent = new Intent(this, SecondActivity.class);
+        Intent intent = new Intent(this, CentralActivity.class);
         startActivity(intent);
         finish();
     }
