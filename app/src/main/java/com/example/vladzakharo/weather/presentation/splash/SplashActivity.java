@@ -23,7 +23,7 @@ public class SplashActivity extends BaseMvpActivity<SplashView, SplashPresenter>
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.detachView();
+        getPresenter().detachView();
     }
 
     @Override

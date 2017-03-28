@@ -9,5 +9,6 @@ import com.example.vladzakharo.weather.presentation.common.mvp.MvpView;
  */
 
 public interface CentralView extends MvpView {
+
     void setupTitle(@NonNull String title);
 }

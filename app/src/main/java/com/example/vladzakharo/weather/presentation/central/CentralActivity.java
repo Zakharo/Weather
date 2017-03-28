@@ -34,7 +34,7 @@ public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresent
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        presenter.detachView();
+        getPresenter().detachView();
     }
 
     @Override
