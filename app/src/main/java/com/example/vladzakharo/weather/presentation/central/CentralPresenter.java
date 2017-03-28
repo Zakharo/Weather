@@ -11,7 +11,7 @@ public class CentralPresenter extends BaseMvpPresenter<CentralView> {
     private void setTitle(String text) {
         CentralView view = getView();
         if (view != null) {
-            getView().setupTitle(text);
+            view.setupTitle(text);
         }
     }
 

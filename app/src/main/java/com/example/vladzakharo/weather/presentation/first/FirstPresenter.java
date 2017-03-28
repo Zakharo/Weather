@@ -1,6 +1,7 @@
 package com.example.vladzakharo.weather.presentation.first;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
 
@@ -28,13 +29,11 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
         super.detachView();
     }
 
-    public void extractArguments(Bundle bundle) {
-        if (bundle != null) {
-            temperature = bundle.getString(ARG_TEMPR, "");
-            pressure = bundle.getString(ARG_PRESS, "");
-            wind = bundle.getString(ARG_WIND, "");
-            setValues();
-        }
+    public void extractArguments(@Nullable Bundle bundle) {
+        temperature = bundle.getString(ARG_TEMPR, "");
+        pressure = bundle.getString(ARG_PRESS, "");
+        wind = bundle.getString(ARG_WIND, "");
+        setValues();
     }
 
     private void setValues() {
