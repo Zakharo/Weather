@@ -1,13 +1,47 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
              android:layout_width="match_parent"
              android:layout_height="match_parent"
              tools:context="com.example.vladzakharo.weather.presentation.first.FirstFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@mipmap/ic_launcher"
+        android:layout_marginTop="68dp"
+        android:id="@+id/fragment_one_image"
+        android:layout_below="@+id/toolbar2"
+        android:layout_centerHorizontal="true"/>
 
-</FrameLayout>
+    <TextView
+        android:text="null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_one_tempr"
+        android:textSize="60sp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:text="null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="111dp"
+        android:id="@+id/fragment_one_press"
+        android:textSize="18sp"
+        android:layout_alignTop="@+id/fragment_one_tempr"
+        android:layout_alignLeft="@+id/fragment_one_image"
+        android:layout_alignStart="@+id/fragment_one_image"/>
+
+    <TextView
+        android:text="null"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/fragment_one_wind"
+        android:textSize="18sp"
+        android:layout_below="@+id/fragment_one_press"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"/>
+
+</RelativeLayout>

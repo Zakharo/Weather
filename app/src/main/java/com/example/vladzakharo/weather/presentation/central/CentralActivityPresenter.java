@@ -10,6 +10,18 @@ import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
 
 public class CentralActivityPresenter extends BaseMvpPresenter<CentralActivityView> {
 
+    CentralActivityPresenter() {
+
+    }
+
+    public void setTitle(String text) {
+        getView().setupTitle(text);
+    }
+
+    public void setupPager() {
+        getView().setupViewPager();
+    }
+
     @Override
     public void attachView(CentralActivityView view) {
         super.attachView(view);
@@ -19,8 +31,6 @@ public class CentralActivityPresenter extends BaseMvpPresenter<CentralActivityVi
     public void detachView() {
         super.detachView();
     }
-
-
 
     @Nullable
     @Override
