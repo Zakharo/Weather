@@ -7,7 +7,6 @@ import java.lang.ref.WeakReference;
 /**
  * Created by Vlad Zakharo on 27.03.2017.
  */
-
 public abstract class BaseMvpPresenter<V extends MvpView> implements MvpPresenter<V> {
 
     private WeakReference<V> mvpView;

@@ -1,6 +1,7 @@
 package com.example.vladzakharo.weather.presentation.central;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,8 +15,10 @@ import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpActivity;
 import com.example.vladzakharo.weather.presentation.first.FirstFragment;
 import com.example.vladzakharo.weather.presentation.second.SecondFragment;
 
-public class CentralActivity extends BaseMvpActivity<CentralActivityView, CentralActivityPresenter>
-        implements CentralActivityView{
+public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresenter>
+        implements CentralView {
+
+    private static final int COUNT_OF_FRAGMENTS = 2;
 
     private Toolbar toolbar;
     private ViewPager viewPager;
@@ -24,8 +27,8 @@ public class CentralActivity extends BaseMvpActivity<CentralActivityView, Centra
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_central);
-        presenter.attachView(this);
         initView();
+        getPresenter().attachView(this);
     }
 
     @Override
@@ -35,15 +38,19 @@ public class CentralActivity extends BaseMvpActivity<CentralActivityView, Centra
     }
 
     @Override
-    protected CentralActivityPresenter createPresenter() {
-        return new CentralActivityPresenter();
+    protected CentralPresenter createPresenter() {
+        return new CentralPresenter();
     }
 
     private void initView() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        initToolBar();
         viewPager = (ViewPager) findViewById(R.id.viewPager);
-        presenter.setupPager();
-        presenter.setTitle("Hrodna");
+        viewPager.setAdapter(new MyPageAdapter(getSupportFragmentManager()));
+    }
+
+    private void initToolBar() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
     }
 
     @Override
@@ -65,14 +72,10 @@ public class CentralActivity extends BaseMvpActivity<CentralActivityView, Centra
     }
 
     @Override
-    public void setupTitle(String title) {
-        setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle(title);
-    }
-
-    @Override
-    public void setupViewPager() {
-        viewPager.setAdapter(new MyPageAdapter(getSupportFragmentManager()));
+    public void setupTitle(@NonNull String title) {
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(title);
+        }
     }
 
     private class MyPageAdapter extends FragmentPagerAdapter {
@@ -84,15 +87,17 @@ public class CentralActivity extends BaseMvpActivity<CentralActivityView, Centra
         @Override
         public Fragment getItem(int position) {
             switch (position) {
-                case 0: return FirstFragment.newInstance("17", "118", "9");
-                case 1: return SecondFragment.newInstance();
+                case 0:
+                    return FirstFragment.newInstance("17", "118", "9");
+                case 1:
+                    return SecondFragment.newInstance();
             }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return COUNT_OF_FRAGMENTS;
         }
     }
 }

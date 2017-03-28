@@ -18,8 +18,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".presentation.central.CentralActivity"
-            android:theme="@style/AppTheme">
+            android:name=".presentation.central.CentralActivity">
         </activity>
     </application>
 

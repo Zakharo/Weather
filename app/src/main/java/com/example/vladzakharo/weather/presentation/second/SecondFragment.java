@@ -4,14 +4,13 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
-import com.example.vladzakharo.weather.presentation.first.FirstFragment;
 
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
 
-public class SecondFragment extends BaseMvpFragment<SecondFragmentView, SecondFragmentPresenter>
-        implements SecondFragmentView{
+public class SecondFragment extends BaseMvpFragment<SecondView, SecondPresenter>
+        implements SecondView {
 
     public SecondFragment() {
 
@@ -35,7 +34,7 @@ public class SecondFragment extends BaseMvpFragment<SecondFragmentView, SecondFr
     }
 
     @Override
-    protected SecondFragmentPresenter createPresenter() {
-        return new SecondFragmentPresenter();
+    protected SecondPresenter createPresenter() {
+        return new SecondPresenter();
     }
 }

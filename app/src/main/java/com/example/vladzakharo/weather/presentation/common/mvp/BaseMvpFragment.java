@@ -7,7 +7,6 @@ import android.support.v4.app.Fragment;
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-
 public abstract class BaseMvpFragment<V extends MvpView, P extends MvpPresenter>
         extends Fragment implements MvpView {
 
@@ -17,6 +16,10 @@ public abstract class BaseMvpFragment<V extends MvpView, P extends MvpPresenter>
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         presenter = createPresenter();
+    }
+
+    public P getPresenter() {
+        return presenter;
     }
 
     protected abstract P createPresenter();

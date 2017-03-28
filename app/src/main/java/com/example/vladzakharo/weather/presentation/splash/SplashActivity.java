@@ -12,7 +12,7 @@ public class SplashActivity extends BaseMvpActivity<SplashView, SplashPresenter>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter.attachView(this);
+        getPresenter().attachView(this);
     }
 
     @Override

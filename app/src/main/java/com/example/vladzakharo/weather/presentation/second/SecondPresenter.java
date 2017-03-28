@@ -6,14 +6,14 @@ import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
  * Created by Vlad Zakharo on 28.03.2017.
  */
 
-public class SecondFragmentPresenter extends BaseMvpPresenter<SecondFragmentView> {
+public class SecondPresenter extends BaseMvpPresenter<SecondView> {
 
-    SecondFragmentPresenter() {
+    SecondPresenter() {
 
     }
 
     @Override
-    public void attachView(SecondFragmentView view) {
+    public void attachView(SecondView view) {
         super.attachView(view);
     }
 

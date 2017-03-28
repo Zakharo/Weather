@@ -18,5 +18,9 @@ public abstract class BaseMvpActivity<V extends MvpView, P extends MvpPresenter>
         presenter = createPresenter();
     }
 
+    public P getPresenter() {
+        return presenter;
+    }
+
     protected abstract P createPresenter();
 }
