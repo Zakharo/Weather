@@ -30,10 +30,12 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
     }
 
     public void extractArguments(@Nullable Bundle bundle) {
-        temperature = bundle.getString(ARG_TEMPR, "");
-        pressure = bundle.getString(ARG_PRESS, "");
-        wind = bundle.getString(ARG_WIND, "");
-        setValues();
+        if (bundle != null) {
+            temperature = bundle.getString(ARG_TEMPR, "");
+            pressure = bundle.getString(ARG_PRESS, "");
+            wind = bundle.getString(ARG_WIND, "");
+            setValues();
+        }
     }
 
     private void setValues() {

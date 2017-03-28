@@ -52,9 +52,7 @@ public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
 
         View view = inflater.inflate(R.layout.fragment_first, container, false);
         initView(view);
-        if (getArguments() != null) {
-            presenter.extractArguments(getArguments());
-        }
+        presenter.extractArguments(getArguments());
         return view;
     }
 
