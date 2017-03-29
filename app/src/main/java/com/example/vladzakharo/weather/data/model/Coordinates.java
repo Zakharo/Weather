@@ -1,4 +1,4 @@
-package com.example.vladzakharo.weather.data;
+package com.example.vladzakharo.weather.data.model;
 
 import com.google.gson.annotations.SerializedName;
 

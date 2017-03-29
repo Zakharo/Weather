@@ -2,9 +2,11 @@ package com.example.vladzakharo.weather.presentation.first;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +20,7 @@ public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
     private TextView temperatureView;
     private TextView pressureView;
     private TextView windView;
+    private Button button;
 
     public static FirstFragment newInstance(String tempr, String press, String wind) {
         FirstFragment fragment = new FirstFragment();
@@ -61,6 +64,14 @@ public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
         imageView = (ImageView) view.findViewById(R.id.fragment_one_image);
         pressureView = (TextView) view.findViewById(R.id.fragment_one_press);
         windView = (TextView) view.findViewById(R.id.fragment_one_wind);
+        button = (Button) view.findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("**************", "Getting latitude");
+
+            }
+        });
     }
 
     @Override
