@@ -32,13 +32,13 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
     private CurrentWeatherInteractor currentWeatherInteractor;
     private CompositeDisposable compositeDisposable;
 
-    FirstPresenter() {
+    public FirstPresenter() {
         currentWeatherInteractor = new CurrentWeatherInteractor();
         compositeDisposable = new CompositeDisposable();
     }
 
     private void loadCurrentWeather() {
-        compositeDisposable.add(currentWeatherInteractor.getWeatherByCityId("55")
+        compositeDisposable.add(currentWeatherInteractor.getWeatherByCityId("627904")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<WeatherData>() {
