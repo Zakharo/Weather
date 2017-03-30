@@ -1,5 +1,6 @@
 package com.example.vladzakharo.weather.data.api;
 
+import com.example.vladzakharo.weather.BuildConfig;
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
 import okhttp3.OkHttpClient;
@@ -10,29 +11,38 @@ import retrofit2.converter.gson.GsonConverterFactory;
 /**
  * Created by Vlad Zakharo on 29.03.2017.
  */
+public class RetrofitService {
 
-public class ServiceApi {
+    private static RetrofitService instance;
+    private static Retrofit retrofit;
 
-    private static final String ENDPOINT = "http://api.openweathermap.org/data/2.5/";
-    private static ServiceApi instance;
-
-    private ServiceApi() {
+    private RetrofitService() {
     }
 
-    public static ServiceApi getInstance() {
+    public static RetrofitService getInstance() {
         if (instance == null) {
-            instance = new ServiceApi();
+            synchronized (RetrofitService.class) {
+                if (instance == null) {
+                    instance = new RetrofitService();
+                    retrofit = createRetrofitService();
+                }
+            }
         }
         return instance;
     }
 
-    public Retrofit createRetrofitService() {
-        return new Retrofit.Builder()
+    private static Retrofit createRetrofitService() {
+        retrofit = new Retrofit.Builder()
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createOkHttpClient())
-                .baseUrl(ENDPOINT)
+                .baseUrl(BuildConfig.ENDPOINT)
                 .build();
+        return retrofit;
+    }
+
+    public Retrofit getRetrofitService() {
+        return retrofit;
     }
 
     private static OkHttpClient createOkHttpClient() {

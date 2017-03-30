@@ -22,7 +22,6 @@ import static com.example.vladzakharo.weather.presentation.first.FirstView.ARG_W
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-
 public class FirstPresenter extends BaseMvpPresenter<FirstView> {
 
     private String temperature;
@@ -63,15 +62,13 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
     public void attachView(final FirstView view) {
         super.attachView(view);
         loadCurrentWeather();
-//        WeatherService service = ServiceFactory.createRetrofitService(WeatherService.class, WeatherService.SERVICE_ENDPOINT);
-//        service.getWeatherData("627904", "4005952b6c9fd2dd34130a45724128ad")
-
     }
 
     @Override
     public void detachView() {
         super.detachView();
         compositeDisposable.dispose();
+        currentWeatherInteractor = null;
     }
 
     public void extractArguments(@Nullable Bundle bundle) {

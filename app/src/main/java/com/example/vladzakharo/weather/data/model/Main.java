@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-
 public class Main {
 
     @SerializedName("temp")
@@ -41,9 +40,5 @@ public class Main {
 
     public double getTempMin() {
         return temperatureMin;
-    }
-
-    public void setTemperature(double temperature) {
-        this.temperature = temperature;
     }
 }

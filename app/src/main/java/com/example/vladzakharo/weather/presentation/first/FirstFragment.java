@@ -13,14 +13,16 @@ import android.widget.TextView;
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
         implements FirstView {
 
-    private ImageView imageView;
-    private TextView temperatureView;
-    private TextView pressureView;
-    private TextView windView;
-    private Button button;
+    @BindView(R.id.fragment_one_image) ImageView imageView;
+    @BindView(R.id.fragment_one_tempr) TextView temperatureView;
+    @BindView(R.id.fragment_one_press) TextView pressureView;
+    @BindView(R.id.fragment_one_wind) TextView windView;
 
     public static FirstFragment newInstance(String tempr, String press, String wind) {
         FirstFragment fragment = new FirstFragment();
@@ -54,24 +56,9 @@ public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_first, container, false);
-        initView(view);
+        ButterKnife.bind(this, view);
         presenter.extractArguments(getArguments());
         return view;
-    }
-
-    private void initView(View view) {
-        temperatureView = (TextView) view.findViewById(R.id.fragment_one_tempr);
-        imageView = (ImageView) view.findViewById(R.id.fragment_one_image);
-        pressureView = (TextView) view.findViewById(R.id.fragment_one_press);
-        windView = (TextView) view.findViewById(R.id.fragment_one_wind);
-        button = (Button) view.findViewById(R.id.button);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("**************", "Getting latitude");
-
-            }
-        });
     }
 
     @Override

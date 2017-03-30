@@ -8,7 +8,6 @@ import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-
 public class SecondFragment extends BaseMvpFragment<SecondView, SecondPresenter>
         implements SecondView {
 

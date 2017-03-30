@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-
 public class Wind {
 
     @SerializedName("speed")

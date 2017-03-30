@@ -9,10 +9,9 @@ import retrofit2.http.Query;
 /**
  * Created by Vlad Zakharo on 29.03.2017.
  */
-
 public interface WeatherService {
-    String SERVICE_ENDPOINT = "http://api.openweathermap.org/data/2.5/";
 
     @GET("weather")
-    Observable<WeatherData> getWeatherData(@Query("id") String id, @Query("appid") String appid);
+    Observable<WeatherData> getWeatherData(@Query("id") String id,
+                                           @Query("appid") String appid);
 }

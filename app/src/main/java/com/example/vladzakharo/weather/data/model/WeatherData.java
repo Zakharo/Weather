@@ -7,7 +7,6 @@ import java.util.List;
 /**
  * Created by Vlad Zakharo on 29.03.2017.
  */
-
 public class WeatherData {
 
     @SerializedName("coord")
@@ -23,7 +22,7 @@ public class WeatherData {
     private Main main;
 
     @SerializedName("visibility")
-    private Integer visibility;
+    private int visibility;
 
     @SerializedName("wind")
     private Wind wind;
@@ -32,19 +31,19 @@ public class WeatherData {
     private Clouds clouds;
 
     @SerializedName("dt")
-    private Integer dt;
+    private int dt;
 
     @SerializedName("sys")
     private Sys sys;
 
     @SerializedName("id")
-    private Integer id;
+    private int id;
 
     @SerializedName("name")
     private String name;
 
     @SerializedName("cod")
-    private Integer cod;
+    private int cod;
 
     public Coordinates getCoord() {
         return coord;
@@ -62,7 +61,7 @@ public class WeatherData {
         return main;
     }
 
-    public Integer getVisibility() {
+    public int getVisibility() {
         return visibility;
     }
 
@@ -74,7 +73,7 @@ public class WeatherData {
         return clouds;
     }
 
-    public Integer getDt() {
+    public int getDt() {
         return dt;
     }
 
@@ -82,7 +81,7 @@ public class WeatherData {
         return sys;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
@@ -90,11 +89,7 @@ public class WeatherData {
         return name;
     }
 
-    public Integer getCod() {
+    public int getCod() {
         return cod;
-    }
-
-    public void setMain(Main main) {
-        this.main = main;
     }
 }

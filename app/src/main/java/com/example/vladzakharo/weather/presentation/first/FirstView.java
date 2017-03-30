@@ -7,7 +7,6 @@ import com.example.vladzakharo.weather.presentation.common.mvp.MvpView;
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-
 public interface FirstView extends MvpView {
 
     String ARG_TEMPR = "ARG_TEMPR";
