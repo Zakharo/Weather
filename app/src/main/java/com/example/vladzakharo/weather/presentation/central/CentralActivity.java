@@ -13,7 +13,7 @@ import android.support.v4.view.ViewPager;
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpActivity;
 import com.example.vladzakharo.weather.presentation.daily.DailyFragment;
-import com.example.vladzakharo.weather.presentation.second.SecondFragment;
+import com.example.vladzakharo.weather.presentation.forecast.ForecastFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -91,7 +91,7 @@ public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresent
                 case 0:
                     return DailyFragment.newInstance("17", "118", "9");
                 case 1:
-                    return SecondFragment.newInstance();
+                    return ForecastFragment.newInstance();
             }
             return null;
         }

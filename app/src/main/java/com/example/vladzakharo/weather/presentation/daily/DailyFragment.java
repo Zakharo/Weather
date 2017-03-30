@@ -60,7 +60,7 @@ public class DailyFragment extends BaseMvpFragment<DailyView, DailyPresenter>
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        View view = inflater.inflate(R.layout.fragment_daily, container, false);
         ButterKnife.bind(this, view);
         presenter.extractArguments(getArguments());
         return view;

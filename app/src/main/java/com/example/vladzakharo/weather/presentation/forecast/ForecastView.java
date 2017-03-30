@@ -1,9 +1,9 @@
-package com.example.vladzakharo.weather.presentation.second;
+package com.example.vladzakharo.weather.presentation.forecast;
 
 import com.example.vladzakharo.weather.presentation.common.mvp.MvpView;
 
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-public interface SecondView extends MvpView {
+public interface ForecastView extends MvpView {
 }

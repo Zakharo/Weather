@@ -1,18 +1,19 @@
-package com.example.vladzakharo.weather.presentation.second;
+package com.example.vladzakharo.weather.presentation.forecast;
 
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
 
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-public class SecondPresenter extends BaseMvpPresenter<SecondView> {
+public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
 
-    SecondPresenter() {
+    ForecastPresenter() {
 
     }
 
     @Override
-    public void attachView(SecondView view) {
+    public void attachView(ForecastView view) {
+
         super.attachView(view);
     }
 
