@@ -12,7 +12,7 @@ import android.support.v4.view.ViewPager;
 
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpActivity;
-import com.example.vladzakharo.weather.presentation.first.FirstFragment;
+import com.example.vladzakharo.weather.presentation.daily.DailyFragment;
 import com.example.vladzakharo.weather.presentation.second.SecondFragment;
 
 import butterknife.BindView;
@@ -23,8 +23,11 @@ public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresent
 
     private static final int COUNT_OF_FRAGMENTS = 2;
 
-    @BindView(R.id.toolbar) Toolbar toolbar;
-    @BindView(R.id.viewPager) ViewPager viewPager;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +89,7 @@ public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresent
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return FirstFragment.newInstance("17", "118", "9");
+                    return DailyFragment.newInstance("17", "118", "9");
                 case 1:
                     return SecondFragment.newInstance();
             }

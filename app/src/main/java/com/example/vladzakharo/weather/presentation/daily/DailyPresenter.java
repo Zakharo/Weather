@@ -1,12 +1,10 @@
-package com.example.vladzakharo.weather.presentation.first;
+package com.example.vladzakharo.weather.presentation.daily;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.example.vladzakharo.weather.data.api.ServiceFactory;
 import com.example.vladzakharo.weather.data.model.WeatherData;
-import com.example.vladzakharo.weather.data.api.WeatherService;
 import com.example.vladzakharo.weather.domain.CurrentWeatherInteractor;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
 
@@ -15,14 +13,14 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.example.vladzakharo.weather.presentation.first.FirstView.ARG_PRESS;
-import static com.example.vladzakharo.weather.presentation.first.FirstView.ARG_TEMPR;
-import static com.example.vladzakharo.weather.presentation.first.FirstView.ARG_WIND;
+import static com.example.vladzakharo.weather.presentation.daily.DailyView.ARG_PRESS;
+import static com.example.vladzakharo.weather.presentation.daily.DailyView.ARG_TEMPR;
+import static com.example.vladzakharo.weather.presentation.daily.DailyView.ARG_WIND;
 
 /**
  * Created by Vlad Zakharo on 28.03.2017.
  */
-public class FirstPresenter extends BaseMvpPresenter<FirstView> {
+public class DailyPresenter extends BaseMvpPresenter<DailyView> {
 
     private String temperature;
     private String pressure;
@@ -31,7 +29,7 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
     private CurrentWeatherInteractor currentWeatherInteractor;
     private CompositeDisposable compositeDisposable;
 
-    public FirstPresenter() {
+    public DailyPresenter() {
         currentWeatherInteractor = new CurrentWeatherInteractor();
         compositeDisposable = new CompositeDisposable();
     }
@@ -43,7 +41,7 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
                 .subscribe(new Consumer<WeatherData>() {
                                @Override
                                public void accept(WeatherData weatherData) throws Exception {
-                                   FirstView view = getView();
+                                   DailyView view = getView();
                                    if (view != null) {
                                        view.setTemperature(String.valueOf(weatherData.getMain().getTemp()));
                                    }
@@ -59,7 +57,7 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
     }
 
     @Override
-    public void attachView(final FirstView view) {
+    public void attachView(final DailyView view) {
         super.attachView(view);
         loadCurrentWeather();
     }
@@ -81,7 +79,7 @@ public class FirstPresenter extends BaseMvpPresenter<FirstView> {
     }
 
     private void setValues() {
-        FirstView view = getView();
+        DailyView view = getView();
         if (view != null) {
             view.setImage();
             view.setTemperature(temperature);

@@ -1,12 +1,10 @@
-package com.example.vladzakharo.weather.presentation.first;
+package com.example.vladzakharo.weather.presentation.daily;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,16 +14,23 @@ import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
-        implements FirstView {
+public class DailyFragment extends BaseMvpFragment<DailyView, DailyPresenter>
+        implements DailyView {
 
-    @BindView(R.id.fragment_one_image) ImageView imageView;
-    @BindView(R.id.fragment_one_tempr) TextView temperatureView;
-    @BindView(R.id.fragment_one_press) TextView pressureView;
-    @BindView(R.id.fragment_one_wind) TextView windView;
+    @BindView(R.id.fragment_one_image)
+    ImageView imageView;
 
-    public static FirstFragment newInstance(String tempr, String press, String wind) {
-        FirstFragment fragment = new FirstFragment();
+    @BindView(R.id.fragment_one_tempr)
+    TextView temperatureView;
+
+    @BindView(R.id.fragment_one_press)
+    TextView pressureView;
+
+    @BindView(R.id.fragment_one_wind)
+    TextView windView;
+
+    public static DailyFragment newInstance(String tempr, String press, String wind) {
+        DailyFragment fragment = new DailyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEMPR, tempr);
         args.putString(ARG_PRESS, press);
@@ -47,8 +52,8 @@ public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
     }
 
     @Override
-    protected FirstPresenter createPresenter() {
-        return new FirstPresenter();
+    protected DailyPresenter createPresenter() {
+        return new DailyPresenter();
     }
 
     @Override

@@ -36,7 +36,7 @@ public class RetrofitService {
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(createOkHttpClient())
-                .baseUrl(BuildConfig.ENDPOINT)
+                .baseUrl(BuildConfig.BASE_URL)
                 .build();
         return retrofit;
     }

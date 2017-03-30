@@ -13,12 +13,14 @@ android {
     }
     buildTypes {
         debug {
-            buildConfigField "String", "ENDPOINT", "\"http://api.openweathermap.org/data/2.5/\""
+            buildConfigField "String", "BASE_URL", "\"http://api.openweathermap.org/data/2.5/\""
+            buildConfigField "String", "API_KEY", "\"4005952b6c9fd2dd34130a45724128ad\""
         }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-            buildConfigField "String", "ENDPOINT", "\"http://api.openweathermap.org/data/2.5/\""
+            buildConfigField "String", "BASE_URL", "\"http://api.openweathermap.org/data/2.5/\""
+            buildConfigField "String", "API_KEY", "\"4005952b6c9fd2dd34130a45724128ad\""
         }
     }
 
