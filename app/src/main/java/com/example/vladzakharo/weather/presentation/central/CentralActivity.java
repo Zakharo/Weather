@@ -12,22 +12,30 @@ import android.support.v4.view.ViewPager;
 
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpActivity;
-import com.example.vladzakharo.weather.presentation.first.FirstFragment;
+import com.example.vladzakharo.weather.presentation.daily.DailyFragment;
 import com.example.vladzakharo.weather.presentation.second.SecondFragment;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
 public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresenter>
         implements CentralView {
 
     private static final int COUNT_OF_FRAGMENTS = 2;
 
-    private Toolbar toolbar;
-    private ViewPager viewPager;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+
+    @BindView(R.id.viewPager)
+    ViewPager viewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_central);
-        initView();
+        ButterKnife.bind(this);
+        viewPager.setAdapter(new MyPageAdapter(getSupportFragmentManager()));
+        initToolBar();
         getPresenter().attachView(this);
     }
 
@@ -42,14 +50,7 @@ public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresent
         return new CentralPresenter();
     }
 
-    private void initView() {
-        initToolBar();
-        viewPager = (ViewPager) findViewById(R.id.viewPager);
-        viewPager.setAdapter(new MyPageAdapter(getSupportFragmentManager()));
-    }
-
     private void initToolBar() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
     }
 
@@ -88,7 +89,7 @@ public class CentralActivity extends BaseMvpActivity<CentralView, CentralPresent
         public Fragment getItem(int position) {
             switch (position) {
                 case 0:
-                    return FirstFragment.newInstance("17", "118", "9");
+                    return DailyFragment.newInstance("17", "118", "9");
                 case 1:
                     return SecondFragment.newInstance();
             }

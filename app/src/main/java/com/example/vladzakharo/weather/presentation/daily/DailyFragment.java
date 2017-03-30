@@ -1,4 +1,4 @@
-package com.example.vladzakharo.weather.presentation.first;
+package com.example.vladzakharo.weather.presentation.daily;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -11,16 +11,26 @@ import android.widget.TextView;
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
 
-public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
-        implements FirstView {
+import butterknife.BindView;
+import butterknife.ButterKnife;
 
-    private ImageView imageView;
-    private TextView temperatureView;
-    private TextView pressureView;
-    private TextView windView;
+public class DailyFragment extends BaseMvpFragment<DailyView, DailyPresenter>
+        implements DailyView {
 
-    public static FirstFragment newInstance(String tempr, String press, String wind) {
-        FirstFragment fragment = new FirstFragment();
+    @BindView(R.id.fragment_one_image)
+    ImageView imageView;
+
+    @BindView(R.id.fragment_one_tempr)
+    TextView temperatureView;
+
+    @BindView(R.id.fragment_one_press)
+    TextView pressureView;
+
+    @BindView(R.id.fragment_one_wind)
+    TextView windView;
+
+    public static DailyFragment newInstance(String tempr, String press, String wind) {
+        DailyFragment fragment = new DailyFragment();
         Bundle args = new Bundle();
         args.putString(ARG_TEMPR, tempr);
         args.putString(ARG_PRESS, press);
@@ -42,8 +52,8 @@ public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
     }
 
     @Override
-    protected FirstPresenter createPresenter() {
-        return new FirstPresenter();
+    protected DailyPresenter createPresenter() {
+        return new DailyPresenter();
     }
 
     @Override
@@ -51,16 +61,9 @@ public class FirstFragment extends BaseMvpFragment<FirstView, FirstPresenter>
                              Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_first, container, false);
-        initView(view);
+        ButterKnife.bind(this, view);
         presenter.extractArguments(getArguments());
         return view;
-    }
-
-    private void initView(View view) {
-        temperatureView = (TextView) view.findViewById(R.id.fragment_one_tempr);
-        imageView = (ImageView) view.findViewById(R.id.fragment_one_image);
-        pressureView = (TextView) view.findViewById(R.id.fragment_one_press);
-        windView = (TextView) view.findViewById(R.id.fragment_one_wind);
     }
 
     @Override

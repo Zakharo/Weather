@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 /**
  * Created by Vlad Zakharo on 27.03.2017.
  */
-
 public abstract class BaseMvpActivity<V extends MvpView, P extends MvpPresenter>
         extends AppCompatActivity implements MvpView {
 
