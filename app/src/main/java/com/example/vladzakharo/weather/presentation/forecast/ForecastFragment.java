@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vladzakharo.weather.R;
+import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherData;
 import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherList;
 import com.example.vladzakharo.weather.presentation.adapters.ForecastAdapter;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
@@ -45,11 +46,6 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-    }
-
-    @Override
     public void onDestroy() {
         super.onDestroy();
         getPresenter().detachView();
@@ -69,11 +65,9 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
     }
 
     @Override
-    public void setList(ArrayList<ForecastWeatherList> list) {
-        ArrayList<ForecastWeatherList> arrayList;
-        arrayList = list;
-        forecastAdapter = new ForecastAdapter(presenter, arrayList);
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+    public void setupRecyclerView(ForecastWeatherData data) {
+        forecastAdapter = new ForecastAdapter(data.getList());
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(forecastAdapter);
     }

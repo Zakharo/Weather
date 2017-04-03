@@ -7,48 +7,32 @@ import android.view.ViewGroup;
 
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherList;
-import com.example.vladzakharo.weather.domain.CurrentWeatherInteractor;
-import com.example.vladzakharo.weather.presentation.ViewHolder;
-import com.example.vladzakharo.weather.presentation.forecast.ForecastPresenter;
+import com.example.vladzakharo.weather.presentation.ForecastViewHolder;
 
 import java.util.ArrayList;
-
-import io.reactivex.disposables.CompositeDisposable;
 
 /**
  * Created by Vlad Zakharo on 30.03.2017.
  */
 
-public class ForecastAdapter extends RecyclerView.Adapter<ViewHolder> {
+public class ForecastAdapter extends RecyclerView.Adapter<ForecastViewHolder> {
 
-    private CurrentWeatherInteractor currentWeatherInteractor;
-    private CompositeDisposable compositeDisposable;
-    private ForecastPresenter presenter;
     private ArrayList<ForecastWeatherList> list;
 
-    public ForecastAdapter(ForecastPresenter presenter, ArrayList<ForecastWeatherList> list) {
-        currentWeatherInteractor = new CurrentWeatherInteractor();
-        compositeDisposable = new CompositeDisposable();
-        this.presenter = presenter;
+    public ForecastAdapter(ArrayList<ForecastWeatherList> list) {
         this.list = list;
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public ForecastViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.single_item, parent, false);
-        return new ViewHolder(view);
+        return new ForecastViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(ViewHolder holder, int position) {
-        holder.
-    }
-
-    @Override
-    public void onDetachedFromRecyclerView(RecyclerView recyclerView) {
-        super.onDetachedFromRecyclerView(recyclerView);
-        compositeDisposable.dispose();
+    public void onBindViewHolder(ForecastViewHolder holder, int position) {
+        holder.bindViewHolder(list.get(position));
     }
 
     @Override

@@ -8,9 +8,9 @@
                 android:paddingTop="@dimen/activity_vertical_margin" >
 
     <TextView
-        android:id="@+id/cityView"
+        android:id="@+id/timeView"
         style="?android:attr/textAppearanceMedium"
-        android:text="CityName"
+        android:text="Time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true" />
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/cityView" />
+        android:layout_below="@id/timeView" />
 
     <TextView
         android:id="@+id/condDescr"

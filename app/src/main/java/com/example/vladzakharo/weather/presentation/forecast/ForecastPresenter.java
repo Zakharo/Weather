@@ -17,7 +17,6 @@ import io.reactivex.schedulers.Schedulers;
  */
 public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
 
-    private ArrayList<ForecastWeatherList> list;
     private CompositeDisposable compositeDisposable;
     private CurrentWeatherInteractor currentWeatherInteractor;
 
@@ -29,7 +28,7 @@ public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
     @Override
     public void attachView(ForecastView view) {
         super.attachView(view);
-        getList();
+        getResponse();
     }
 
     @Override
@@ -39,17 +38,16 @@ public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
         compositeDisposable.dispose();
     }
 
-    public void getList() {
+    public void getResponse() {
         compositeDisposable.add(currentWeatherInteractor.getForecastByCityId("627904")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<ForecastWeatherData>() {
                     @Override
                     public void accept(ForecastWeatherData forecastWeatherData) throws Exception {
-                        list = forecastWeatherData.getList();
                         ForecastView view = getView();
                         if (view != null) {
-                            view.setList(list);
+                            view.setupRecyclerView(forecastWeatherData);
                         }
                     }
                 }));
