@@ -39,7 +39,7 @@ public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
         currentWeatherInteractor = null;
     }
 
-    public void loadForecast() {
+    private void loadForecast() {
         compositeDisposable.add(currentWeatherInteractor.getForecastByCityId("627904")
                 .subscribeOn(Schedulers.newThread())
                 .map(new Function<ForecastWeatherData, List<Forecast>>() {

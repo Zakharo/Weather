@@ -54,16 +54,13 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
-
+        initRecycler();
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-        initRecycler();
-
         getPresenter().attachView(this);
     }
 
