@@ -20,10 +20,10 @@ public class CurrentWeatherInteractor {
     }
 
     public Observable<WeatherData> getWeatherByCityId(String cityId) {
-        return weatherService.getWeatherData(cityId, BuildConfig.API_KEY);
+        return weatherService.getWeather(cityId, BuildConfig.API_KEY);
     }
 
     public Observable<ForecastWeatherData> getForecastByCityId(String cityId) {
-        return weatherService.getForecastData(cityId, BuildConfig.API_KEY);
+        return weatherService.getForecast(cityId, BuildConfig.API_KEY);
     }
 }

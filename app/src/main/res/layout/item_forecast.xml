@@ -8,7 +8,7 @@
                 android:paddingTop="@dimen/activity_vertical_margin" >
 
     <TextView
-        android:id="@+id/timeView"
+        android:id="@+id/text_time"
         style="?android:attr/textAppearanceMedium"
         android:text="Time"
         android:layout_width="wrap_content"
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/timeView" />
+        android:layout_below="@id/text_time" />
 
     <TextView
         android:id="@+id/condDescr"
@@ -48,7 +48,7 @@
         android:layout_marginTop="15dp" />
 
     <TextView
-        android:id="@+id/press"
+        android:id="@+id/text_pressure"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/pressLab"
@@ -63,7 +63,7 @@
         android:text="Humidity" />
 
     <TextView
-        android:id="@+id/hum"
+        android:id="@+id/text_humidity"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBaseline="@id/humLab"
@@ -93,5 +93,4 @@
         android:layout_alignBaseline="@id/windLab"
         android:layout_toRightOf="@id/windSpeed"
         android:layout_marginLeft="4dp"/>
-
 </RelativeLayout>

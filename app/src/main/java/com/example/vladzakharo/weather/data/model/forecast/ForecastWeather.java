@@ -5,7 +5,6 @@ import com.google.gson.annotations.SerializedName;
 /**
  * Created by Vlad Zakharo on 03.04.2017.
  */
-
 public class ForecastWeather {
 
     @SerializedName("id")

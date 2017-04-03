@@ -1,14 +1,15 @@
 package com.example.vladzakharo.weather.data.model.forecast;
 
+import com.example.vladzakharo.weather.data.model.daily.Clouds;
+import com.example.vladzakharo.weather.data.model.daily.Wind;
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Vlad Zakharo on 03.04.2017.
  */
-
-public class ForecastWeatherList {
+public class ForecastWeatherInformation {
 
     @SerializedName("dt")
     private String dt;
@@ -17,22 +18,19 @@ public class ForecastWeatherList {
     private ForecastMain main;
 
     @SerializedName("weather")
-    private ArrayList<ForecastWeather> weather;
+    private List<ForecastWeather> weather;
 
     @SerializedName("clouds")
-    private ForecastClouds clouds;
+    private Clouds clouds;
 
     @SerializedName("wind")
-    private ForecastWind wind;
+    private Wind wind;
 
     @SerializedName("rain")
     private ForecastRain rain;
 
-    @SerializedName("sys")
-    private ForecastSys sys;
-
     @SerializedName("dt_txt")
-    private String dt_txt;
+    private String dtTxt;
 
     public String getDt() {
         return dt;
@@ -42,11 +40,11 @@ public class ForecastWeatherList {
         return main;
     }
 
-    public ForecastClouds getClouds() {
+    public Clouds getClouds() {
         return clouds;
     }
 
-    public ForecastWind getWind() {
+    public Wind getWind() {
         return wind;
     }
 
@@ -54,15 +52,11 @@ public class ForecastWeatherList {
         return rain;
     }
 
-    public ForecastSys getSys() {
-        return sys;
+    public String getDtTxt() {
+        return dtTxt;
     }
 
-    public String getDt_txt() {
-        return dt_txt;
-    }
-
-    public ArrayList<ForecastWeather> getWeather() {
+    public List<ForecastWeather> getWeather() {
         return weather;
     }
 }

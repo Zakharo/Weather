@@ -2,12 +2,11 @@ package com.example.vladzakharo.weather.data.model.forecast;
 
 import com.google.gson.annotations.SerializedName;
 
-import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Vlad Zakharo on 03.04.2017.
  */
-
 public class ForecastWeatherData {
 
     @SerializedName("cod")
@@ -20,7 +19,7 @@ public class ForecastWeatherData {
     private int cnt;
 
     @SerializedName("list")
-    private ArrayList<ForecastWeatherList> list;
+    private List<ForecastWeatherInformation> list;
 
     @SerializedName("city")
     private ForecastCity city;
@@ -37,7 +36,7 @@ public class ForecastWeatherData {
         return cnt;
     }
 
-    public ArrayList<ForecastWeatherList> getList() {
+    public List<ForecastWeatherInformation> getList() {
         return list;
     }
 

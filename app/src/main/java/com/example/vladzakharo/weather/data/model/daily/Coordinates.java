@@ -13,12 +13,11 @@ public class Coordinates {
     @SerializedName("lat")
     private double latitude;
 
-
-    public double getLon() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public double getLat() {
+    public double getLatitude() {
         return latitude;
     }
 }

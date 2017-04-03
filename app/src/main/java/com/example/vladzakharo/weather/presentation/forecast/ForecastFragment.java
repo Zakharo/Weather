@@ -10,11 +10,8 @@ import android.view.ViewGroup;
 
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherData;
-import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherList;
 import com.example.vladzakharo.weather.presentation.adapters.ForecastAdapter;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
-
-import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,11 +25,8 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
     @BindView(R.id.recyclerView)
     public RecyclerView recyclerView;
 
+    private final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
     private ForecastAdapter forecastAdapter;
-
-    public ForecastFragment() {
-
-    }
 
     public static ForecastFragment newInstance() {
         ForecastFragment fragment = new ForecastFragment();
@@ -67,7 +61,6 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
     @Override
     public void setupRecyclerView(ForecastWeatherData data) {
         forecastAdapter = new ForecastAdapter(data.getList());
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(linearLayoutManager);
         recyclerView.setAdapter(forecastAdapter);
     }

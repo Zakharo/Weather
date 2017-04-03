@@ -1,11 +1,10 @@
 package com.example.vladzakharo.weather.presentation.forecast;
 
+import android.support.annotation.NonNull;
+
 import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherData;
-import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherList;
 import com.example.vladzakharo.weather.domain.CurrentWeatherInteractor;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
-
-import java.util.ArrayList;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
@@ -28,17 +27,17 @@ public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
     @Override
     public void attachView(ForecastView view) {
         super.attachView(view);
-        getResponse();
+        loadForecast();
     }
 
     @Override
     public void detachView() {
         super.detachView();
-        currentWeatherInteractor = null;
         compositeDisposable.dispose();
+        currentWeatherInteractor = null;
     }
 
-    public void getResponse() {
+    public void loadForecast() {
         compositeDisposable.add(currentWeatherInteractor.getForecastByCityId("627904")
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
