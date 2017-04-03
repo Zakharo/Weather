@@ -1,4 +1,4 @@
-package com.example.vladzakharo.weather.presentation.daily;
+package com.example.vladzakharo.weather.presentation.central.daily;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;

@@ -1,6 +1,5 @@
 package com.example.vladzakharo.weather.presentation.adapters;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,7 +7,6 @@ import android.view.ViewGroup;
 
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.data.model.forecast.Forecast;
-import com.example.vladzakharo.weather.presentation.ForecastViewHolder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,8 +18,8 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastViewHolder> {
 
     private List<Forecast> forecastList;
 
-    public ForecastAdapter(@NonNull List<Forecast> forecast) {
-        forecastList = new ArrayList<>(forecast);
+    public ForecastAdapter() {
+        forecastList = new ArrayList<>();
     }
 
     @Override
@@ -41,8 +39,8 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastViewHolder> {
         return forecastList.size();
     }
 
-    public void addForecast(Forecast forecast) {
-        forecastList.add(forecast);
+    public void addForecast(List<Forecast> forecast) {
+        forecastList.addAll(forecast);
         notifyDataSetChanged();
     }
 }

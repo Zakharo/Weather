@@ -12,8 +12,8 @@ import android.support.v4.view.ViewPager;
 
 import com.example.vladzakharo.weather.R;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpActivity;
-import com.example.vladzakharo.weather.presentation.daily.DailyFragment;
-import com.example.vladzakharo.weather.presentation.forecast.ForecastFragment;
+import com.example.vladzakharo.weather.presentation.central.daily.DailyFragment;
+import com.example.vladzakharo.weather.presentation.central.forecast.ForecastFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -1,4 +1,4 @@
-package com.example.vladzakharo.weather.presentation.daily;
+package com.example.vladzakharo.weather.presentation.central.daily;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -13,9 +13,9 @@ import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 
-import static com.example.vladzakharo.weather.presentation.daily.DailyView.ARG_PRESS;
-import static com.example.vladzakharo.weather.presentation.daily.DailyView.ARG_TEMPR;
-import static com.example.vladzakharo.weather.presentation.daily.DailyView.ARG_WIND;
+import static com.example.vladzakharo.weather.presentation.central.daily.DailyView.ARG_PRESS;
+import static com.example.vladzakharo.weather.presentation.central.daily.DailyView.ARG_TEMPR;
+import static com.example.vladzakharo.weather.presentation.central.daily.DailyView.ARG_WIND;
 
 /**
  * Created by Vlad Zakharo on 28.03.2017.

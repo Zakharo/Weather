@@ -1,14 +1,16 @@
-package com.example.vladzakharo.weather.presentation.forecast;
+package com.example.vladzakharo.weather.presentation.central.forecast;
 
-import android.support.annotation.NonNull;
-
+import com.example.vladzakharo.weather.data.model.forecast.Forecast;
 import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherData;
 import com.example.vladzakharo.weather.domain.CurrentWeatherInteractor;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
 
+import java.util.List;
+
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 
 /**
@@ -40,15 +42,21 @@ public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
     public void loadForecast() {
         compositeDisposable.add(currentWeatherInteractor.getForecastByCityId("627904")
                 .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<ForecastWeatherData>() {
+                .map(new Function<ForecastWeatherData, List<Forecast>>() {
                     @Override
-                    public void accept(ForecastWeatherData forecastWeatherData) throws Exception {
-                        ForecastView view = getView();
-                        if (view != null) {
-                            view.loadWeather(forecastWeatherData);
-                        }
+                    public List<Forecast> apply(ForecastWeatherData data) throws Exception {
+                        return data.getForecastList();
                     }
-                }));
+                })
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<Forecast>>() {
+                            @Override
+                            public void accept(List<Forecast> forecasts) throws Exception {
+                                ForecastView view = getView();
+                                if (view != null) {
+                                    view.setWeather(forecasts);
+                                }
+                            }
+                        }));
     }
 }

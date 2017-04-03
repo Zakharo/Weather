@@ -5,7 +5,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.vladzakharo.weather.presentation.daily.DailyFragment">
+    tools:context=".presentation.central.daily.DailyFragment">
 
     <ImageView
         android:layout_width="wrap_content"
