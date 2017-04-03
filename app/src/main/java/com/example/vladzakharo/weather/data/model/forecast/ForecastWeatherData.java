@@ -19,7 +19,7 @@ public class ForecastWeatherData {
     private int cnt;
 
     @SerializedName("list")
-    private List<ForecastWeatherInformation> list;
+    private List<Forecast> forecastList;
 
     @SerializedName("city")
     private ForecastCity city;
@@ -36,8 +36,8 @@ public class ForecastWeatherData {
         return cnt;
     }
 
-    public List<ForecastWeatherInformation> getList() {
-        return list;
+    public List<Forecast> getForecastList() {
+        return forecastList;
     }
 
     public ForecastCity getCity() {

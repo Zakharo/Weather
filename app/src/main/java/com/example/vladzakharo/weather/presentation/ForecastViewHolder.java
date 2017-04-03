@@ -2,11 +2,12 @@ package com.example.vladzakharo.weather.presentation;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
 import com.example.vladzakharo.weather.R;
-import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherInformation;
+import com.example.vladzakharo.weather.data.model.forecast.Forecast;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -30,15 +31,18 @@ public class ForecastViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
     }
 
-    public void onBindData(@NonNull ForecastWeatherInformation item) {
-        if (item.getDtTxt() != null) {
-            timeView.setText(item.getDtTxt());
+    public void onBindData(@NonNull Forecast item) {
+        String timeTxt = item.getTimeTxt();
+        if (!TextUtils.isEmpty(timeTxt)) {
+            timeView.setText(timeTxt);
         }
-        if (item.getMain().getPressure() != null) {
-            pressureView.setText(item.getMain().getPressure());
+        String pressure = item.getMain().getPressure();
+        if (!TextUtils.isEmpty(pressure)) {
+            pressureView.setText(pressure);
         }
-        if (item.getMain().getHumidity() != null) {
-            humidityView.setText(item.getMain().getHumidity());
+        String humidity = item.getMain().getHumidity();
+        if (!TextUtils.isEmpty(humidity)) {
+            humidityView.setText(humidity);
         }
     }
 }

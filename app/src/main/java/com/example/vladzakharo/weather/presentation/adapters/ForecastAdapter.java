@@ -7,9 +7,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vladzakharo.weather.R;
-import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherInformation;
+import com.example.vladzakharo.weather.data.model.forecast.Forecast;
 import com.example.vladzakharo.weather.presentation.ForecastViewHolder;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,10 +18,10 @@ import java.util.List;
  */
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastViewHolder> {
 
-    private List<ForecastWeatherInformation> forecastWeatherList;
+    private List<Forecast> forecastList;
 
-    public ForecastAdapter(@NonNull List<ForecastWeatherInformation> forecastWeatherList) {
-        this.forecastWeatherList = forecastWeatherList;
+    public ForecastAdapter(@NonNull List<Forecast> forecast) {
+        forecastList = new ArrayList<>(forecast);
     }
 
     @Override
@@ -32,11 +33,16 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastViewHolder> {
 
     @Override
     public void onBindViewHolder(ForecastViewHolder holder, int position) {
-        holder.onBindData(forecastWeatherList.get(position));
+        holder.onBindData(forecastList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return forecastWeatherList.size();
+        return forecastList.size();
+    }
+
+    public void addForecast(Forecast forecast) {
+        forecastList.add(forecast);
+        notifyDataSetChanged();
     }
 }

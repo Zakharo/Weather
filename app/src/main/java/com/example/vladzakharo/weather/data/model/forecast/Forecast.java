@@ -1,7 +1,8 @@
 package com.example.vladzakharo.weather.data.model.forecast;
 
-import com.example.vladzakharo.weather.data.model.daily.Clouds;
-import com.example.vladzakharo.weather.data.model.daily.Wind;
+import com.example.vladzakharo.weather.data.model.common.Clouds;
+import com.example.vladzakharo.weather.data.model.common.Weather;
+import com.example.vladzakharo.weather.data.model.common.Wind;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
@@ -9,16 +10,16 @@ import java.util.List;
 /**
  * Created by Vlad Zakharo on 03.04.2017.
  */
-public class ForecastWeatherInformation {
+public class Forecast {
 
     @SerializedName("dt")
-    private String dt;
+    private String timeStamp;
 
     @SerializedName("main")
     private ForecastMain main;
 
     @SerializedName("weather")
-    private List<ForecastWeather> weather;
+    private List<Weather> weather;
 
     @SerializedName("clouds")
     private Clouds clouds;
@@ -30,10 +31,10 @@ public class ForecastWeatherInformation {
     private ForecastRain rain;
 
     @SerializedName("dt_txt")
-    private String dtTxt;
+    private String timeTxt;
 
-    public String getDt() {
-        return dt;
+    public String getTimeStamp() {
+        return timeStamp;
     }
 
     public ForecastMain getMain() {
@@ -52,11 +53,11 @@ public class ForecastWeatherInformation {
         return rain;
     }
 
-    public String getDtTxt() {
-        return dtTxt;
+    public String getTimeTxt() {
+        return timeTxt;
     }
 
-    public List<ForecastWeather> getWeather() {
+    public List<Weather> getWeather() {
         return weather;
     }
 }

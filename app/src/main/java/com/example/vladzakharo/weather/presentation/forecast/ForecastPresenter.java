@@ -46,7 +46,7 @@ public class ForecastPresenter extends BaseMvpPresenter<ForecastView> {
                     public void accept(ForecastWeatherData forecastWeatherData) throws Exception {
                         ForecastView view = getView();
                         if (view != null) {
-                            view.setupRecyclerView(forecastWeatherData);
+                            view.loadWeather(forecastWeatherData);
                         }
                     }
                 }));

@@ -1,5 +1,9 @@
 package com.example.vladzakharo.weather.data.model.daily;
 
+import com.example.vladzakharo.weather.data.model.common.Clouds;
+import com.example.vladzakharo.weather.data.model.common.Coordinates;
+import com.example.vladzakharo.weather.data.model.common.Weather;
+import com.example.vladzakharo.weather.data.model.common.Wind;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.List;

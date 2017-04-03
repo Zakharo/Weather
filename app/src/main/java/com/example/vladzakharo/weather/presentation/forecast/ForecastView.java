@@ -8,5 +8,5 @@ import com.example.vladzakharo.weather.presentation.common.mvp.MvpView;
  */
 public interface ForecastView extends MvpView {
 
-    void setupRecyclerView(ForecastWeatherData data);
+    void loadWeather(ForecastWeatherData data);
 }

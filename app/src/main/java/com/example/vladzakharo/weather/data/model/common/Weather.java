@@ -1,11 +1,11 @@
-package com.example.vladzakharo.weather.data.model.forecast;
+package com.example.vladzakharo.weather.data.model.common;
 
 import com.google.gson.annotations.SerializedName;
 
 /**
- * Created by Vlad Zakharo on 03.04.2017.
+ * Created by Vlad Zakharo on 28.03.2017.
  */
-public class ForecastWeather {
+public class Weather {
 
     @SerializedName("id")
     private int id;

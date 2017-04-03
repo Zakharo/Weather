@@ -1,6 +1,6 @@
 package com.example.vladzakharo.weather.data.model.forecast;
 
-import com.example.vladzakharo.weather.data.model.daily.Coordinates;
+import com.example.vladzakharo.weather.data.model.common.Coordinates;
 import com.google.gson.annotations.SerializedName;
 
 /**

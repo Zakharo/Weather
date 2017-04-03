@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vladzakharo.weather.R;
+import com.example.vladzakharo.weather.data.model.forecast.Forecast;
 import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherData;
 import com.example.vladzakharo.weather.presentation.adapters.ForecastAdapter;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
@@ -22,21 +23,18 @@ import butterknife.ButterKnife;
 public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPresenter>
         implements ForecastView {
 
-    @BindView(R.id.recyclerView)
+    @BindView(R.id.recycler_forecast)
     public RecyclerView recyclerView;
 
-    private final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
     private ForecastAdapter forecastAdapter;
 
     public static ForecastFragment newInstance() {
-        ForecastFragment fragment = new ForecastFragment();
-        return fragment;
+        return new ForecastFragment();
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getPresenter().attachView(this);
     }
 
     @Override
@@ -55,13 +53,31 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+        recyclerView.setLayoutManager(linearLayoutManager);
         return view;
     }
 
     @Override
-    public void setupRecyclerView(ForecastWeatherData data) {
-        forecastAdapter = new ForecastAdapter(data.getList());
-        recyclerView.setLayoutManager(linearLayoutManager);
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        getPresenter().attachView(this);
+    }
+
+    @Override
+    public void loadWeather(ForecastWeatherData data) {
+        if (forecastAdapter == null) {
+            forecastAdapter = new ForecastAdapter(data.getForecastList());
+        } else {
+            for (int i = 0; i < data.getForecastList().size(); i++) {
+                addForecast(data.getForecastList().get(i));
+            }
+            return;
+        }
         recyclerView.setAdapter(forecastAdapter);
+    }
+
+    private void addForecast(Forecast forecast) {
+        forecastAdapter.addForecast(forecast);
     }
 }
