@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.util.Log;
 
-import com.example.vladzakharo.weather.data.model.WeatherData;
+import com.example.vladzakharo.weather.data.model.daily.WeatherData;
 import com.example.vladzakharo.weather.domain.CurrentWeatherInteractor;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpPresenter;
 

@@ -9,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.vladzakharo.weather.R;
+import com.example.vladzakharo.weather.data.model.forecast.ForecastWeatherList;
 import com.example.vladzakharo.weather.presentation.adapters.ForecastAdapter;
 import com.example.vladzakharo.weather.presentation.common.mvp.BaseMvpFragment;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -21,10 +24,10 @@ import butterknife.ButterKnife;
 public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPresenter>
         implements ForecastView {
 
-    private ForecastAdapter forecastAdapter;
-
     @BindView(R.id.recyclerView)
-    private RecyclerView recyclerView;
+    public RecyclerView recyclerView;
+
+    private ForecastAdapter forecastAdapter;
 
     public ForecastFragment() {
 
@@ -39,15 +42,11 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getPresenter().attachView(this);
-        forecastAdapter = new ForecastAdapter();
     }
 
     @Override
-    public void onResume() {
-        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        recyclerView.setAdapter(forecastAdapter);
-        super.onResume();
+    public void onStart() {
+        super.onStart();
     }
 
     @Override
@@ -64,9 +63,18 @@ public class ForecastFragment extends BaseMvpFragment<ForecastView, ForecastPres
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_forecast, container, false);
         ButterKnife.bind(this, view);
         return view;
+    }
+
+    @Override
+    public void setList(ArrayList<ForecastWeatherList> list) {
+        ArrayList<ForecastWeatherList> arrayList;
+        arrayList = list;
+        forecastAdapter = new ForecastAdapter(presenter, arrayList);
+        final LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity().getApplicationContext());
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(forecastAdapter);
     }
 }
