@@ -14,10 +14,12 @@ import retrofit2.http.Query;
 public interface WeatherService {
 
     @GET("weather")
-    Observable<WeatherData> getWeather(@Query("id") String id,
+    Observable<WeatherData> getWeather(@Query("units") String unit,
+                                       @Query("id") String id,
                                        @Query("appid") String appid);
 
     @GET("forecast")
-    Observable<ForecastWeatherData> getForecast(@Query("id") String id,
+    Observable<ForecastWeatherData> getForecast(@Query("units") String unit,
+                                                @Query("id") String id,
                                                 @Query("appid")String appid);
 }
